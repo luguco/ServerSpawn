@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ServerSpawn:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ServerSpawn_jar</output-path>
+    <root id="archive" name="ServerSpawn.jar">
+      <element id="module-output" name="ServerSpawn" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+    </root>
+  </artifact>
+</component>

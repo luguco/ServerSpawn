@@ -1,0 +1,13 @@
+name: ServerSpawn
+version: 1.0
+author: luguco
+main: me.luguco.serverspawn.Main
+
+commands:
+  setspawn:
+    description: Set the spawn
+    usage: </setspawn>
+  spawn:
+    description: teleport to the spawn
+    usage: </spawn>
+    alias: s
