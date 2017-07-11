@@ -15,6 +15,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Main extends JavaPlugin implements  CommandExecutor{
 
+    private static Main plugin;
     @Override
     public void onEnable(){
         Bukkit.getConsoleSender().sendMessage("§a[ServerSpawn] enabled!");
@@ -36,14 +37,14 @@ public class Main extends JavaPlugin implements  CommandExecutor{
 
 
     public static void Spawntp(Player p) {
-        if (getConfig().contains("Spawn")) {
-            String world1 =  getConfig().getString("Spawn.world");
+        if (plugin.getConfig().contains("Spawn")) {
+            String world1 =  plugin.getConfig().getString("Spawn.world");
             World world =  Bukkit.getWorld(world1);
-            double x = getConfig().getDouble("Spawn.x");
-            double y = getConfig().getDouble("Spawn.y");
-            double z = getConfig().getDouble("Spawn.z");
-            float yaw = (float) getConfig().getDouble("Spawn.yaw");
-            float pitch = (float) getConfig().getDouble("Spawn.pitch");
+            double x = plugin.getConfig().getDouble("Spawn.x");
+            double y = plugin.getConfig().getDouble("Spawn.y");
+            double z = plugin.getConfig().getDouble("Spawn.z");
+            float yaw = (float) plugin.getConfig().getDouble("Spawn.yaw");
+            float pitch = (float) plugin.getConfig().getDouble("Spawn.pitch");
             Location loc = new Location(world, x, y, z, yaw, pitch);
             p.teleport(loc);
         }

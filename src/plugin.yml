@@ -10,4 +10,3 @@ commands:
   spawn:
     description: teleport to the spawn
     usage: </spawn>
-    aliases: s
