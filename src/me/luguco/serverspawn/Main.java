@@ -7,22 +7,19 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * Created by luguco on 11.07.2017.
  */
 
-public class Main extends JavaPlugin implements Listener, CommandExecutor{
+public class Main extends JavaPlugin implements  CommandExecutor{
 
     @Override
     public void onEnable(){
         Bukkit.getConsoleSender().sendMessage("§a[ServerSpawn] enabled!");
         createFile();
+        new Listeners(this);
     }
 
     @Override
@@ -36,20 +33,9 @@ public class Main extends JavaPlugin implements Listener, CommandExecutor{
         saveConfig();
     }
 
-    @EventHandler
-    public void onJoin(PlayerJoinEvent e){
-        Player p = e.getPlayer();
-        if(!p.hasPermission("spawn.nospawntp." + p.getWorld().getName() ) || !p.hasPermission("spawn.admin")){
-            Spawntp(p);
-        }
-        e.setJoinMessage("");
-    }
-    @EventHandler
-    public void onQuit(PlayerQuitEvent e){
-        e.setQuitMessage("");
-    }
 
-    public void Spawntp(Player p) {
+
+    public static void Spawntp(Player p) {
         if (getConfig().contains("Spawn")) {
             String world1 =  getConfig().getString("Spawn.world");
             World world =  Bukkit.getWorld(world1);
